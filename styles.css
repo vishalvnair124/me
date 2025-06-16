@@ -965,3 +965,76 @@ form .fields {
         /* Display one project at a time */
     }
 }
+
+
+
+.skill-section {
+    padding: 55px 0;
+    background-color: var(--background);
+    color: var(--text);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.skill-section h2 {
+    text-align: center;
+    font-size: 20px;
+    margin-bottom: 40px;
+}
+
+.rd-txt {
+    color: var(--text);
+    /* You can optionally use another highlight color if desired */
+}
+
+.skill-wrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 25px;
+    padding: 0 40px;
+}
+
+.skill-box {
+    text-align: center;
+    padding: 20px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background-color: var(--aboutbackground);
+    color: var(--abouttext);
+    transition: transform 0.3s, background-color 0.3s;
+}
+
+.skill-box i {
+    font-size: 48px;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.skill-box:hover {
+    transform: translateY(-5px);
+    background-color: var(--button-hover-color);
+    color: var(--abouttext);
+}
+
+
+/* Responsive grid columns */
+@media screen and (min-width: 768px) {
+    .skill-wrapper {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .skill-wrapper {
+        grid-template-columns: repeat(6, minmax(0, 1fr));
+    }
+
+    .skill-section h2 {
+        font-size: 44px;
+    }
+}
+
+@media screen and (min-width: 1440px) {
+    .skill-section h2 {
+        font-size: 49px;
+    }
+}
