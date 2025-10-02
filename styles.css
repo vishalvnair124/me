@@ -287,7 +287,8 @@ input:checked+.slider:before {
     align-items: center;
     justify-content: center;
 }
-.Profile{
+
+.Profile {
     width: 100%;
     max-width: 800px;
     display: flex;
@@ -297,16 +298,20 @@ input:checked+.slider:before {
     box-sizing: border-box;
     gap: 1px;
 }
-.title,.photo{
+
+.title,
+.photo {
     height: 100%;
     width: 50%;
 }
-.title{
+
+.title {
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
-.photo{
+
+.photo {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -350,7 +355,7 @@ video {
 .my-photo-at-home {
     width: 250px;
     height: 250px;
-    border-radius:50%;
+    border-radius: 50%;
 }
 
 .home-icon {
@@ -1085,7 +1090,7 @@ form .fields {
 }
 
 .scroller {
-    max-width: 600px;
+    max-width: 800px;
 }
 
 .scroller__inner {
@@ -1154,30 +1159,36 @@ form .fields {
 .test {
     background: red !important;
 }
+
 @media (max-width:800px) {
-    .Profile{
+    .Profile {
         flex-direction: column;
         gap: 20px;
     }
-    .title{
+
+    .title {
         width: 100%;
         align-items: center;
     }
-    .center-msg1{
+
+    .center-msg1 {
         text-align: center;
         font-size: 30px;
         margin: 0;
         margin-bottom: 10px;
     }
-    .center-msg1 div:last-child{
+
+    .center-msg1 div:last-child {
         margin-top: -8px;
     }
-    .center-msg2{
+
+    .center-msg2 {
         text-align: center;
         margin-bottom: 15px;
         font-size: 18px;
     }
-    .my-photo-at-home{
+
+    .my-photo-at-home {
         width: 200px;
         height: 200px;
     }
