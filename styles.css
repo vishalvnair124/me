@@ -114,9 +114,6 @@ a:focus {
         margin-left: 2px;
     }
 
-    .top-nav {
-        top: 10px;
-    }
 
     .my-photo {
         left: 20%;
@@ -283,15 +280,44 @@ input:checked+.slider:before {
 
 .outer {
     width: 100%;
-    min-height: 100vh;
-    object-fit: cover;
+    min-height: fit-content;
+    padding: 100px 0;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.Profile{
+    width: 100%;
+    max-width: 800px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 20px;
+    box-sizing: border-box;
+    gap: 1px;
+}
+.title,.photo{
+    height: 100%;
+    width: 50%;
+}
+.title{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.photo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 video {
     width: 100%;
-    min-height: 100vh;
+    height: 100%;
     object-fit: cover;
     z-index: -1;
+    position: absolute;
 }
 
 .center-msg1 {
@@ -311,7 +337,7 @@ video {
 
 .center-msg2>p {
     padding: 0px;
-    margin-top: 12px;
+    margin: 0;
 }
 
 .inner.center-msg2 {
@@ -324,9 +350,7 @@ video {
 .my-photo-at-home {
     width: 250px;
     height: 250px;
-    border-radius: 250px;
-
-    box-shadow: rgba(7, 78, 231, 0.625) 0px 20px 50px 0px;
+    border-radius:50%;
 }
 
 .home-icon {
@@ -350,10 +374,8 @@ video {
     width: 250px;
     background-color: rgb(15, 15, 15);
     transform-style: preserve-3d;
-    animation: rot 2s infinite ease;
     border-radius: 250px;
-    box-shadow: 0 0 50px 0px, inset 0 0 90px 0px;
-    color: blue;
+    /* box-shadow: 0 0 50px 0px, inset 0 0 90px 0px; */
     transition: 1.5s;
     display: flex;
     justify-content: center;
@@ -362,7 +384,7 @@ video {
 
 
 .one-div:hover {
-    box-shadow: 0 0 25px 100px rgba(50, 83, 203, 0.747), inset 5px 5px 5px 0px rgba(19, 56, 223, 0.67);
+    /* box-shadow: 0 0 25px 100px rgba(50, 83, 203, 0.747), inset 5px 5px 5px 0px rgba(19, 56, 223, 0.67); */
 }
 
 @keyframes rot {
@@ -379,21 +401,20 @@ video {
     }
 }
 
-.social {
-    left: 5%;
-}
+
 
 .social-links,
 .flex-center {
     display: flex;
     justify-content: center;
     align-items: center;
+    width: fit-content;
 }
 
 .social-btn {
     cursor: pointer;
-    height: 55px;
-    width: 55px;
+    height: 50px;
+    width: 50px;
     font-family: 'Titillium Web', sans-serif;
     color: #333;
     border-radius: 55px;
@@ -401,13 +422,15 @@ video {
     background: white;
     margin: 5px;
     transition: 0.3s;
-    justify-content: center;
     padding: 5px;
+    display: flex;
+    justify-content: center;
+    padding-left: 10px;
 }
 
 .social-btn svg {
-    height: 24px;
-    width: 24px;
+    height: 20px;
+    width: 20px;
 }
 
 .social-btn span {
@@ -1098,10 +1121,12 @@ form .fields {
 
 .scroller[data-speed="fast"] {
     --_animation-duration: 20s;
+    width: 100%;
 }
 
 .scroller[data-speed="slow"] {
     --_animation-duration: 60s;
+    width: 100%;
 }
 
 @keyframes scroll {
@@ -1128,4 +1153,32 @@ form .fields {
 /* for testing purposed to ensure the animation lined up correctly */
 .test {
     background: red !important;
+}
+@media (max-width:800px) {
+    .Profile{
+        flex-direction: column;
+        gap: 20px;
+    }
+    .title{
+        width: 100%;
+        align-items: center;
+    }
+    .center-msg1{
+        text-align: center;
+        font-size: 30px;
+        margin: 0;
+        margin-bottom: 10px;
+    }
+    .center-msg1 div:last-child{
+        margin-top: -8px;
+    }
+    .center-msg2{
+        text-align: center;
+        margin-bottom: 15px;
+        font-size: 18px;
+    }
+    .my-photo-at-home{
+        width: 200px;
+        height: 200px;
+    }
 }
