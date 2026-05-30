@@ -93,14 +93,15 @@ function toggleMenu() {}
 
 var texts = [
   "Web Developer...",
+  "PHP Developer...",
   "Flutter Developer...",
-  "IOT Developer...",
   "Python Developer...",
   "JAVA Developer...",
+  "Spring Boot Developer...",
   "C/C++ Developer...",
   "Founder of NoBugTech Solution...",
-  "Team Lead at NoBugTech Solution...",
-  "PHP Developer...",
+  // "ex Team Lead at NoBugTech Solution...",
+  // "IOT Developer...",
   // "Udemy Instructor...",
   // "Founder of ResourceHuB...",
   // "Founder of 124...",
