@@ -1,27 +1,43 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
 :root {
-    --background: #fff;
-    --text: #000000;
-    --border: #444;
-    --abouttext: #fff;
-    --aboutbackground: #000000;
-    --button-hover-color: #fff;
+   /* Light theme variables (glass/neumorphism) */
+   --background: #f6fbff;
+   --surface: rgba(255,255,255,0.7);
+   --glass: rgba(255,255,255,0.6);
+   --text: #071124;
+   --muted: #5b6b7a;
+   --accent: #00e5ff; /* cyan accent */
+   --accent-2: #00ffc2;
+   --border: rgba(7,17,36,0.08);
+   --card-bg: rgba(255,255,255,0.65);
+   --skill-box-background: rgba(255,255,255,0.6);
+   --abouttext: #071124;
+   --aboutbackground: rgba(255,255,255,0.9);
+   --button-hover-color: #e6faff;
 
-    --clr-neutral-100: hsl(0, 0%, 100%);
-    --clr-primary-100: hsl(205, 15%, 58%);
-    --clr-primary-400: hsl(215, 25%, 27%);
-    --clr-primary-800: hsl(217, 33%, 17%);
-    --clr-primary-900: hsl(218, 33%, 9%);
+   --clr-neutral-100: hsl(0, 0%, 100%);
+   --clr-primary-100: hsl(185, 100%, 65%);
+   --clr-primary-400: hsl(185, 100%, 45%);
+   --clr-primary-800: hsl(185, 100%, 25%);
+   --clr-primary-900: hsl(185, 100%, 15%);
 }
 
 body.dark {
-    --background: #000000;
-    --text: #fff;
-    --border: #444;
-    --abouttext: #000000;
-    --aboutbackground: #fff;
-    --button-hover-color: #fff;
+    /* Dark theme variables tuned for glassy look */
+    --background: #071124; /* deep navy */
+    --surface: rgba(255,255,255,0.03);
+    --glass: rgba(255,255,255,0.04);
+    --text: #e6f7ff;
+    --muted: #8fbbd9;
+    --accent: #00e5ff;
+    --accent-2: #00ffc2;
+    --border: rgba(255,255,255,0.06);
+    --card-bg: rgba(255,255,255,0.02);
+    --skill-box-background: rgba(255,255,255,0.03);
+    --abouttext: #e6f7ff;
+    --aboutbackground: rgba(255,255,255,0.03);
+    --button-hover-color: rgba(0,229,255,0.08);
 }
 
 body {
@@ -38,22 +54,26 @@ body {
 }
 
 .top-nav {
-    margin-top: 5px;
     position: fixed;
-    top: 0;
-    right: 10px;
-    padding: 10px 10px 10px 10px;
-    border-radius: 30px;
+    top: 16px;
+    right: 16px;
+    padding: 10px 18px;
+    border-radius: 14px;
     display: flex;
+    gap: 12px;
     align-items: center;
-    transition: 0.3s ease-out;
-    backdrop-filter: blur(82px) brightness(3.2);
-    -webkit-backdrop-filter: blur(8px) brightness(1.2);
-    text-shadow: 0 0 5px rgba(0, 0, 0, 0.593);
-    color: white;
-    font-size: 16px;
+    transition: transform 0.18s ease, box-shadow 0.18s ease;
+    background: linear-gradient(135deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
+    backdrop-filter: blur(10px) saturate(120%);
+    -webkit-backdrop-filter: blur(10px) saturate(120%);
+    border: 1px solid var(--border);
+    color: var(--text);
+    font-size: 15px;
     z-index: 1000;
+    box-shadow: 0 8px 30px rgba(2,6,23,0.5);
 }
+
+.top-nav:hover { transform: translateY(-2px); }
 
 @media (min-width: 640px) {
     .top-nav {
@@ -68,7 +88,7 @@ a {
 
 a:hover,
 a:focus {
-    color: orange;
+    color: var(--accent);
 }
 
 .nav-list {
@@ -353,10 +373,16 @@ video {
 
 
 .my-photo-at-home {
-    width: 250px;
-    height: 250px;
+    width: 220px;
+    height: 220px;
     border-radius: 50%;
+    object-fit: cover;
+    border: 6px solid rgba(255,255,255,0.06);
+    box-shadow: 0 12px 30px rgba(2,6,23,0.6);
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
 }
+
+.my-photo-at-home:hover { transform: translateY(-6px) scale(1.02); box-shadow: 0 18px 40px rgba(2,6,23,0.7); }
 
 .home-icon {
     color: #fff;
@@ -418,19 +444,20 @@ video {
 
 .social-btn {
     cursor: pointer;
-    height: 50px;
-    width: 50px;
+    height: 44px;
+    min-width: 44px;
+    padding: 8px 12px;
     font-family: 'Titillium Web', sans-serif;
-    color: #333;
-    border-radius: 55px;
-    box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1);
-    background: white;
-    margin: 5px;
-    transition: 0.3s;
-    padding: 5px;
+    color: var(--text);
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(2,6,23,0.45);
+    background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+    border: 1px solid var(--border);
+    margin: 6px;
+    transition: all 0.28s cubic-bezier(.2,.9,.2,1);
     display: flex;
-    justify-content: center;
-    padding-left: 10px;
+    align-items: center;
+    gap: 8px;
 }
 
 .social-btn svg {
@@ -447,14 +474,26 @@ video {
 }
 
 .social-btn:hover {
-    width: 160px;
-    border-radius: 5px;
+    transform: translateY(-4px);
+    box-shadow: 0 14px 30px rgba(2,6,23,0.5);
+    background: linear-gradient(90deg, var(--accent), var(--accent-2));
+    color: #001017;
+    border-radius: 12px;
+    border: 1px solid rgba(255,255,255,0.06);
+}
+
+.social-btn span {
+    width: 0px;
+    overflow: hidden;
+    transition: width 0.28s ease, opacity 0.28s ease;
+    opacity: 0;
 }
 
 .social-btn:hover span {
-    padding: 2px;
-    padding-right: 0px;
-    width: 160px;
+    width: 88px;
+    opacity: 1;
+    color: #001017;
+    margin-left: 4px;
 }
 
 #twitter svg {
@@ -762,18 +801,19 @@ form .fields {
 }
 
 .submit-button {
-    padding: 12px 20px;
-    background-color: aqua;
-    color: black;
-    /* Text color matching dark mode theme */
-    border: 2px solid var();
-    /* Border color matches the dark/light theme */
-    border-radius: 8px;
-    /* Rounded corners */
+    padding: 12px 22px;
+    background: linear-gradient(90deg, var(--accent), var(--accent-2));
+    color: #001017;
+    border: none;
+    border-radius: 10px;
     cursor: pointer;
     font-size: 16px;
-    transition: all 0.3s ease;
+    font-weight: 600;
+    box-shadow: 0 10px 30px rgba(0,229,255,0.12);
+    transition: transform 0.18s ease, box-shadow 0.18s ease;
 }
+
+.submit-button:hover { transform: translateY(-3px); box-shadow: 0 18px 40px rgba(0,229,255,0.16); }
 
 .submit-button:hover {
     color: #000000;
