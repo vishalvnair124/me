@@ -159,7 +159,73 @@ function addAnimation() {
     scrollerContent.forEach((item) => {
       const duplicatedItem = item.cloneNode(true);
       duplicatedItem.setAttribute("aria-hidden", true);
+      duplicatedItem.inert = true;
       scrollerInner.appendChild(duplicatedItem);
     });
+  });
+}
+
+const certificateScroller = document.querySelector(".certificate-scroller");
+const certificateDialog = document.querySelector(".certificate-dialog");
+
+if (
+  certificateScroller &&
+  certificateDialog &&
+  typeof certificateDialog.showModal === "function"
+) {
+  const certificateDialogTitle = certificateDialog.querySelector(
+    "#certificate-dialog-title",
+  );
+  const certificateDialogImage = certificateDialog.querySelector(
+    ".certificate-dialog-image",
+  );
+
+  certificateScroller.addEventListener("click", (event) => {
+    const card = event.target.closest(".certificate-card");
+
+    if (!card || !certificateScroller.contains(card)) {
+      return;
+    }
+
+    const image = card.querySelector("img");
+    certificateDialogTitle.textContent = card.dataset.title;
+    certificateDialogImage.src = image.currentSrc || image.src;
+    certificateDialogImage.alt = card.dataset.title;
+    certificateDialog.showModal();
+  });
+
+  certificateDialog
+    .querySelector(".certificate-dialog-close")
+    .addEventListener("click", () => certificateDialog.close());
+
+  certificateDialog.addEventListener("click", (event) => {
+    if (event.target === certificateDialog) {
+      certificateDialog.close();
+    }
+  });
+}
+
+const timeline = document.querySelector(".timeline");
+const prefersReducedMotion = window.matchMedia(
+  "(prefers-reduced-motion: reduce)",
+).matches;
+
+if (timeline && "IntersectionObserver" in window && !prefersReducedMotion) {
+  timeline.classList.add("timeline--revealing");
+
+  const timelineObserver = new IntersectionObserver(
+    (entries, observer) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.15 },
+  );
+
+  timeline.querySelectorAll(".container").forEach((event) => {
+    timelineObserver.observe(event);
   });
 }
