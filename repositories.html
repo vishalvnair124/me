@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Browse public GitHub repositories by Vishal V Nair."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="More Projects | VISHAL V NAIR" />
+    <meta
+      property="og:description"
+      content="Browse my public projects and repositories on GitHub."
+    />
+    <meta
+      property="og:url"
+      content="https://vishalvnair124.github.io/me/repositories.html"
+    />
+    <meta
+      property="og:image"
+      content="https://vishalvnair124.github.io/me/media/projects/github-repo-preview.png"
+    />
+    <meta
+      property="og:image:alt"
+      content="Vishal V Nair's GitHub portfolio repository preview"
+    />
+    <meta property="og:image:width" content="405" />
+    <meta property="og:image:height" content="212" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <title>More Projects | VISHAL V NAIR</title>
+    <link rel="stylesheet" href="styles.css?v=20261006-7" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
+    />
+  </head>
+  <body class="dark">
+    <main class="repositories-page">
+      <header class="repositories-header">
+        <a class="back-to-portfolio" href="./index.html#projects">
+          <svg
+            aria-hidden="true"
+            viewBox="0 0 24 24"
+            width="20"
+            height="20"
+            fill="none"
+          >
+            <path
+              d="M19 12H5m7 7-7-7 7-7"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+          <span>Back to portfolio</span>
+        </a>
+        <button
+          class="repositories-theme-toggle"
+          id="repositories-theme-toggle"
+          type="button"
+          aria-pressed="true"
+          aria-label="Switch to light theme"
+        >
+          <svg
+            class="theme-icon theme-icon-sun"
+            aria-hidden="true"
+            viewBox="0 0 24 24"
+            width="20"
+            height="20"
+            fill="none"
+          >
+            <circle
+              cx="12"
+              cy="12"
+              r="4"
+              stroke="currentColor"
+              stroke-width="1.8"
+            />
+            <path
+              d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"
+              stroke="currentColor"
+              stroke-width="1.8"
+              stroke-linecap="round"
+            />
+          </svg>
+          <svg
+            class="theme-icon theme-icon-moon"
+            aria-hidden="true"
+            viewBox="0 0 24 24"
+            width="20"
+            height="20"
+            fill="none"
+          >
+            <path
+              d="M20.5 15.5A8.5 8.5 0 0 1 8.5 3.5 8.5 8.5 0 1 0 20.5 15.5Z"
+              stroke="currentColor"
+              stroke-width="1.8"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+          <span class="theme-toggle-label">Light mode</span>
+        </button>
+      </header>
+
+      <section aria-labelledby="repositories-title">
+        <h1 class="projects-title" id="repositories-title">
+          More Projects on GitHub
+        </h1>
+        <p class="repositories-intro">
+          Browse all of my public GitHub repositories.
+        </p>
+        <p
+          class="repositories-status"
+          id="repositories-status"
+          role="status"
+          aria-live="polite"
+        >
+          Loading public repositories...
+        </p>
+        <div class="projects-grid repositories-grid" id="repositories-grid"></div>
+        <div class="repositories-error" id="repositories-error" hidden>
+          <p id="repositories-error-message">
+            Repositories could not be loaded.
+          </p>
+          <button class="project-link" id="repositories-retry" type="button">
+            Try Again
+          </button>
+        </div>
+      </section>
+    </main>
+    <script src="./repositories.js?v=20261006-7"></script>
+  </body>
+</html>
