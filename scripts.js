@@ -93,19 +93,22 @@ function toggleMenu() {}
 
 var texts = [
   "Web Developer...",
-  "PHP Developer...",
-  "Flutter Developer...",
-  "Python Developer...",
   "JAVA Developer...",
+  "Python Developer...",
+  "PHP Developer...",
   "Spring Boot Developer...",
-  "C/C++ Developer...",
   "Founder of NoBugTech Solution...",
+  "Flutter Developer...",
+  // "Devops Engineer",
+  // "Cloud Engineer",
+  // "ML Developer...",
   // "ex Team Lead at NoBugTech Solution...",
+  // "C/C++ Developer...",
   // "IOT Developer...",
   // "Udemy Instructor...",
   // "Founder of ResourceHuB...",
   // "Founder of 124...",
-  // "ML Developer...",
+  
 ];
 
 var currentTextIndex = 0;
