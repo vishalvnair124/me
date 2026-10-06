@@ -180,6 +180,21 @@ if (
     ".certificate-dialog-image",
   );
 
+  certificateScroller.querySelectorAll(".certificate-card img").forEach((image) => {
+    const setOrientation = () => {
+      const isPortrait = image.naturalHeight > image.naturalWidth;
+      image.closest(".certificate-card").dataset.orientation = isPortrait
+        ? "portrait"
+        : "landscape";
+    };
+
+    if (image.complete && image.naturalWidth > 0) {
+      setOrientation();
+    } else {
+      image.addEventListener("load", setOrientation, { once: true });
+    }
+  });
+
   certificateScroller.addEventListener("click", (event) => {
     const card = event.target.closest(".certificate-card");
 
@@ -188,6 +203,7 @@ if (
     }
 
     const image = card.querySelector("img");
+    certificateDialog.dataset.orientation = card.dataset.orientation;
     certificateDialogTitle.textContent = card.dataset.title;
     certificateDialogImage.src = image.currentSrc || image.src;
     certificateDialogImage.alt = card.dataset.title;
@@ -202,6 +218,10 @@ if (
     if (event.target === certificateDialog) {
       certificateDialog.close();
     }
+  });
+
+  certificateDialog.addEventListener("close", () => {
+    delete certificateDialog.dataset.orientation;
   });
 }
 

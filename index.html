@@ -22,7 +22,7 @@
     <meta property="og:image:width" content="405" />
     <meta property="og:image:height" content="212" />
     <meta name="twitter:card" content="summary_large_image" />
-    <link rel="stylesheet" href="styles.css?v=20261006-7" />
+    <link rel="stylesheet" href="styles.css?v=20261006-10" />
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
@@ -303,7 +303,12 @@
             <h2 id="certificates-title">Certificates <span>&amp; learning</span></h2>
             <p class="certificate-intro">A few milestones from my ongoing journey of learning and building.</p>
 
-            <div class="scroller certificate-scroller" data-direction="right" data-speed="slow">
+            <div
+              class="scroller certificate-scroller"
+              role="region"
+              aria-label="Certificate gallery"
+              tabindex="0"
+            >
               <div class="scroller__inner">
                 <button class="certificate-card" type="button" data-title="Cloud Computing">
                   <span class="certificate-image-frame">
@@ -359,7 +364,7 @@
                     <img src="./media/certificate/redteam.png" alt="" />
                     <span class="certificate-open-hint">View certificate <span aria-hidden="true">↗</span></span>
                   </span>
-                  <span class="certificate-card-caption"><span>Red Teaming</span><span aria-hidden="true">08</span></span>
+                  <span class="certificate-card-caption"><span>Ethical Hacking Associate</span><span aria-hidden="true">08</span></span>
                 </button>
                 <button class="certificate-card" type="button" data-title="TCS Communication Skills">
                   <span class="certificate-image-frame">
@@ -391,8 +396,6 @@
                 </button>
               </div>
             </div>
-            <p class="certificate-hint"><span aria-hidden="true">←</span> Select a certificate to view it <span aria-hidden="true">→</span></p>
-
             <dialog class="certificate-dialog" aria-labelledby="certificate-dialog-title">
               <div class="certificate-dialog-header">
                 <h3 id="certificate-dialog-title"></h3>
@@ -547,7 +550,7 @@
           <div class="content">
             <h2>2024 July</h2>
             <p>
-              Founded <strong style="color: aqua">NoBugTech Solution</strong>,
+              Founded <strong style="color: var(--accent)">NoBugTech Solution</strong>,
               serving as Founder and Development Team Lead. Skills: PHP,
               Start-up Leadership, IT Leadership.
             </p>
