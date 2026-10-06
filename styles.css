@@ -9,6 +9,7 @@
    --muted: #52677f;
    --accent: #007b98;
    --accent-2: var(--accent);
+   --accent-foreground: #ffffff;
    --border: rgba(10,27,50,0.12);
    --card-bg: rgba(255,255,255,0.65);
    --skill-box-background: rgba(255,255,255,0.6);
@@ -39,6 +40,7 @@ body.dark {
     --text: #e6f7ff;
     --muted: #8fbbd9;
     --accent: #00d9f2;
+    --accent-foreground: #062033;
     --border: rgba(255,255,255,0.06);
     --card-bg: rgba(255,255,255,0.02);
     --skill-box-background: rgba(255,255,255,0.03);
@@ -1258,6 +1260,14 @@ body:not(.dark) .social-btn:focus-visible {
     flex-wrap: wrap;
 }
 
+.contact-content > .column {
+    padding: 28px;
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    background: linear-gradient(145deg, var(--surface), var(--card-bg));
+    box-shadow: 0 18px 44px rgba(0, 0, 0, 0.12);
+}
+
 /* Left Column (Contact Info) */
 .column.left {
     flex: 1;
@@ -1268,13 +1278,13 @@ body:not(.dark) .social-btn:focus-visible {
     font-size: 28px;
     font-weight: bold;
     margin-bottom: 20px;
-    color: var(--section-title-color);
+    color: var(--text);
 }
 
 p.section-description {
     font-size: 16px;
     margin-bottom: 30px;
-    color: var(--description-color);
+    color: var(--muted);
 }
 
 .icons .row {
@@ -1285,19 +1295,19 @@ p.section-description {
 
 .icons .row i.icon {
     font-size: 24px;
-    color: var(--icon-color);
+    color: var(--accent);
     margin-right: 15px;
 }
 
 .info .head.info-title {
     font-size: 14px;
     font-weight: bold;
-    color: #555;
+    color: var(--accent);
 }
 
 .info .sub-title.info-description {
     font-size: 16px;
-    color: var(--description-color);
+    color: var(--text);
 }
 
 /* Right Column (Contact Form) */
@@ -1329,8 +1339,16 @@ form .fields {
     font-size: 16px;
     border: 1px solid var(--border);
     border-radius: 8px;
+    background: var(--surface);
+    color: var(--text);
+    color-scheme: inherit;
     margin-bottom: 20px;
     transition: all 0.3s ease;
+}
+
+.input-field::placeholder {
+    color: var(--muted);
+    opacity: 1;
 }
 
 .input-field:focus {
@@ -1338,10 +1356,15 @@ form .fields {
     outline: none;
 }
 
+.contact .input-field:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 16%, transparent);
+}
+
 .submit-button {
     padding: 12px 22px;
-    background: linear-gradient(90deg, var(--accent), var(--accent-2));
-    color: #001017;
+    background: var(--accent);
+    color: var(--accent-foreground);
     border: none;
     border-radius: 10px;
     cursor: pointer;
@@ -1354,7 +1377,7 @@ form .fields {
 .submit-button:hover { transform: translateY(-3px); box-shadow: 0 18px 40px color-mix(in srgb, var(--accent) 16%, transparent); }
 
 .submit-button:hover {
-    color: #000000;
+    color: var(--accent-foreground);
     background-color: var(--accent);
     border-color: var(--accent);
     /* Change border color on hover */
