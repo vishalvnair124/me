@@ -97,7 +97,7 @@ var texts = [
   "Python Developer...",
   "PHP Developer...",
   "Spring Boot Developer...",
-  "Founder of NoBugTech Solution...",
+  "Founder @ NoBugTech...",
   "Flutter Developer...",
   // "Devops Engineer",
   // "Cloud Engineer",
@@ -251,4 +251,77 @@ if (timeline && "IntersectionObserver" in window && !prefersReducedMotion) {
   timeline.querySelectorAll(".container").forEach((event) => {
     timelineObserver.observe(event);
   });
+}
+
+const featuredProjectGallery = document.querySelector(
+  ".featured-project-gallery",
+);
+
+if (featuredProjectGallery) {
+  const slides = Array.from(
+    featuredProjectGallery.querySelectorAll(".featured-project-slide"),
+  );
+  const status = featuredProjectGallery.querySelector(
+    ".featured-project-gallery-status",
+  );
+  const dots = Array.from(
+    featuredProjectGallery.querySelectorAll("[data-gallery-slide]"),
+  );
+  const prefersReducedMotion = window.matchMedia(
+    "(prefers-reduced-motion: reduce)",
+  ).matches;
+  let currentSlide = 0;
+  let autoAdvance;
+
+  const showSlide = (index) => {
+    currentSlide = (index + slides.length) % slides.length;
+    slides.forEach((slide, slideIndex) => {
+      slide.hidden = slideIndex !== currentSlide;
+    });
+    dots.forEach((dot, dotIndex) => {
+      if (dotIndex === currentSlide) {
+        dot.setAttribute("aria-current", "true");
+      } else {
+        dot.removeAttribute("aria-current");
+      }
+    });
+    status.textContent = `Screenshot ${currentSlide + 1} of ${slides.length}`;
+  };
+
+  const stopAutoAdvance = () => {
+    window.clearInterval(autoAdvance);
+    autoAdvance = undefined;
+  };
+
+  const startAutoAdvance = () => {
+    if (prefersReducedMotion || document.hidden || autoAdvance) {
+      return;
+    }
+
+    autoAdvance = window.setInterval(
+      () => showSlide(currentSlide + 1),
+      4500,
+    );
+  };
+
+  featuredProjectGallery
+    .querySelector("[data-gallery-previous]")
+    .addEventListener("click", () => showSlide(currentSlide - 1));
+  featuredProjectGallery
+    .querySelector("[data-gallery-next]")
+    .addEventListener("click", () => showSlide(currentSlide + 1));
+  dots.forEach((dot) => {
+    dot.addEventListener("click", () => {
+      showSlide(Number(dot.dataset.gallerySlide));
+    });
+  });
+  document.addEventListener("visibilitychange", () => {
+    if (document.hidden) {
+      stopAutoAdvance();
+    } else {
+      startAutoAdvance();
+    }
+  });
+
+  startAutoAdvance();
 }
